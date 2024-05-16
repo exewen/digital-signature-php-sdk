@@ -1,0 +1,12 @@
+{
+  "digestAlgorithm": "sha-256",
+  "privateKey": "./tests/keys/rsa/privatekey.pem",
+  "jwe": "jwe",
+  "signatureParams": [
+    "content-digest",
+    "x-ebay-signature-key",
+    "@method",
+    "@path",
+    "@authority"
+  ]
+}

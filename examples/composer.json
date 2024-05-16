@@ -1,0 +1,5 @@
+{
+  "require": {
+    "ebay/digital-signature-php-sdk": ">=1.0.0"
+  }
+}
