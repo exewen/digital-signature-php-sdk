@@ -6,11 +6,11 @@ use Mapper\ModelMapper;
 
 class Signature {
 
-    private SignatureConfig $signatureConfig;
-    private SignatureService $signatureService;
+    private $signatureConfig;
+    private $signatureService;
 
-    public function __construct(string $configPath) {
-        $this->loadSignatureConfig($configPath);
+    public function __construct(array $config) {
+        $this->loadSignatureConfig(json_encode($config));
         $this->signatureService = new SignatureService();
     }
 
@@ -41,8 +41,7 @@ class Signature {
      *
      * @param string $configPath config path
      */
-    private function loadSignatureConfig(string $configPath): void {
-        $json = file_get_contents($configPath);
+    private function loadSignatureConfig(string $json): void {
         $jsonDecodedObj = json_decode($json, false);
 
         $mapper = new ModelMapper();
@@ -50,7 +49,7 @@ class Signature {
         $mapper->map($jsonDecodedObj, $this->signatureConfig);
 
         if (is_null($this->signatureConfig->privateKeyStr) && !is_null($this->signatureConfig->privateKey)) {
-            $this->signatureConfig->privateKeyStr = file_get_contents($this->signatureConfig->privateKey);
+            $this->signatureConfig->privateKeyStr = $this->signatureConfig->privateKey;
         }
     }
 }
