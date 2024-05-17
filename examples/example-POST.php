@@ -1,6 +1,6 @@
 <?php
 
-use Ebay\DigitalSignature\Signature;
+use Exewen\Ebay\DigitalSignature\Signature;
 
 require 'vendor/autoload.php';
 

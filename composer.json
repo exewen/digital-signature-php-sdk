@@ -1,10 +1,10 @@
 {
   "name": "exewen/digital-signature-php-sdk",
-  "description": "An SDK for using eBay's APIs that require a digital signature",
+  "description": "(Custom) An SDK for using eBay's APIs that require a digital signature",
   "license": "Apache-2.0",
   "type": "library",
   "keywords": ["digital signature","API","security","cryptography"],
-  "homepage": "https://github.com/eBay/digital-signature-php-sdk",
+  "homepage": "https://github.com/exewen/digital-signature-php-sdk",
   "require": {
     "php": ">=7.3",
     "ext-json": "*",
@@ -17,7 +17,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Ebay\\": "src/"
+      "Exewen\\Ebay\\": "src/"
     }
   },
   "authors": [

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ebay\DigitalSignature;
+namespace Exewen\Ebay\DigitalSignature;
 
 use Mapper\ModelMapper;
 
