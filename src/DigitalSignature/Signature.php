@@ -9,8 +9,9 @@ class Signature {
     private $signatureConfig;
     private $signatureService;
 
-    public function __construct(array $config) {
-        $this->loadSignatureConfig(json_encode($config));
+    public function __construct(string $privateKey, string $jwe) {
+
+        $this->loadSignatureConfig($this->config($privateKey, $jwe));
         $this->signatureService = new SignatureService();
     }
 
@@ -52,4 +53,21 @@ class Signature {
             $this->signatureConfig->privateKeyStr = $this->signatureConfig->privateKey;
         }
     }
+
+    private function config(string $privateKey, string $jwe)
+    {
+        return json_encode([
+            "digestAlgorithm" => "sha-256",
+            "privateKey" => "${privateKey}",
+            "jwe" => "${jwe}",
+            "signatureParams" => [
+                "content-digest",
+                "x-ebay-signature-key",
+                "@method",
+                "@path",
+                "@authority"
+            ]
+        ]);
+    }
+
 }
