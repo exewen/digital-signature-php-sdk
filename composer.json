@@ -6,7 +6,7 @@
   "keywords": ["digital signature","API","security","cryptography"],
   "homepage": "https://github.com/exewen/digital-signature-php-sdk",
   "require": {
-    "php": ">=7.3|^8.0",
+    "php": ">=7.3",
     "ext-json": "*",
     "runz0rd/mapper-php": "^2.2",
     "phpseclib/phpseclib": "~3.0",
